@@ -6,10 +6,6 @@ var taskSchema = new mongoose.Schema({
     description:{type:String, default: ""},
 },{timestamps:true});
 
-var restfulInteractiveSchema = new mongoose.Schema({
-    heading: {type:String, required:true},
-    completed:{type:Boolean, default:false},
-    description:{type:String, default: ""},
-},{timestamps:true});
 
-mongoose.model('Task', taskSchema, restfulInteractiveSchema);
+
+mongoose.model('Task', taskSchema);

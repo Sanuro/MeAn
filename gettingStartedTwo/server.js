@@ -10,6 +10,6 @@ app.use(express.static( __dirname + "/client/gettingStartedTwo/dist/gettingStart
 require("./server/config/mongoose.js");
 require("./server/config/routes.js")(app);
 
-app.listen(1111, function(){
-    console.log("looking at 1111");
+app.listen(4444, function(){
+    console.log("looking at 4444");
 });
