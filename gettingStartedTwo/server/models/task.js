@@ -1,5 +1,3 @@
-
-
 const mongoose = require('mongoose')
 
 var taskSchema = new mongoose.Schema({
@@ -8,4 +6,10 @@ var taskSchema = new mongoose.Schema({
     description:{type:String, default: ""},
 },{timestamps:true});
 
-mongoose.model('Task', taskSchema);
+var restfulInteractiveSchema = new mongoose.Schema({
+    heading: {type:String, required:true},
+    completed:{type:Boolean, default:false},
+    description:{type:String, default: ""},
+},{timestamps:true});
+
+mongoose.model('Task', taskSchema, restfulInteractiveSchema);

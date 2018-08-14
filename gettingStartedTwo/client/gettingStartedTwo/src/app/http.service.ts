@@ -17,8 +17,12 @@ export class HttpService {
 
   makerTasker(data){
     return this._http.post("/tasks", data);
-  }
+  };
   
+  postToServer(num){
+    return this._http.post("/tasks", num);
+  };
 
+  
 };
 

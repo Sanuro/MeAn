@@ -13,5 +13,11 @@
   <p *ngFor = 'let task of tasks'>Title: {{task.title}}, Description: {{task.description}}</p>
 
 </div>
-
+<div>
+    <button (click)="onButtonClick()" >Click me!</button>
+    <button (click)="onButtonClickParam(5)">Click me!</button>
+    <button (click)="onButtonClickParams(5, 'hello')">Click me!</button>
+    <button (click)="onButtonClickEvent($event)">Click me!</button>
+    
+</div>
 

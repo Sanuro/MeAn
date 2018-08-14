@@ -5,7 +5,7 @@ const app = express();
 const bodyParser = require("body-parser");
 
 app.use(bodyParser.json());
-app.use(express.static( __dirname + "/client/gettingStartedTwo/dist/gettingStartedTwo"));
+app.use(express.static( __dirname + "/client/restfulTasksInteractive/dist/restfulTasksInteractive"));
 
 require("./server/config/mongoose.js");
 require("./server/config/routes.js")(app);
