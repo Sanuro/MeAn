@@ -28,7 +28,9 @@ function Tasks(){
     }
 
     this.create = function(req,res){
+        
         var task = new Task({title: req.body.title, completed: req.body.completed, description: req.body.description});
+
         task.save(function(err){
             if(err){
                 res.json({message:"Error", error: err});
