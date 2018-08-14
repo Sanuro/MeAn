@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <title>Ninja 3</title>
+</head>
+<body>
+    <script>
+
+    class Ninja{
+        constructor (name){
+            this.name = name;
+            this.health = 100;
+            this.strength = 3;
+            this.speed = 3;
+        }
+        sayName(){
+            console.log(`This is my name ${this.name}.`);
+        }
+        showStats(){
+            console.log(`My health: ${this.health}, my str: ${this.strength}, my sped: ${this.speed}.`);
+        }
+        drinkSake(){
+            this.health += 10;
+            console.log(`After the drink, new hp is: ${this.health}.`);
+        }
+    }
+    class Sensei extends Ninja{
+        constructor(name){
+            super(name);
+            this.wisdom = 10;
+            this.health = 200;
+            this.strength = 10;
+            this.speed = 10;
+        }
+        speakWisdom(){
+            super.drinkSake();
+                console.log(`The drunken fist is the way: ${this.health}`);
+            
+        }
+    }
+    // let superSensei = new Sensei("Master Xifu");
+    // console.log(`We drink the sake: ${superSensei.drinkSake}, we show the stats: ${superSensei.showStat}`);
+    let sensei = new Sensei("Master Xifu")
+    let ninja = new Ninja("Panini")
+
+    </script>
+</body>
+</html>   

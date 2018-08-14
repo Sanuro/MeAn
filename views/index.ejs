@@ -1,0 +1,31 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <script>
+    $(document).ready(function(){
+        $('#peopleBtn').click(function(){
+            // let's make the request to our OWN server!
+            $.get('/people', function(data){
+                // log the data to be sure we have it before we dive into manipulating the DOM
+                console.log("got the data", data);
+            }, 'json');
+        });
+    });
+</script>
+    <% if(messages.registration) { %>
+        <% for (var x of messages.registration) { %>
+        <h3><%= x %></h3>
+        <% } %>
+    <% } %>
+    <h3>Login</h3>
+<form method='post' action='/login'>
+    Email: <input type='text' name='email'>
+    Password: <input type='password' name='password'>
+    <input type="submit" value="Login"> 
+</form>
+    <h3>Register</h3>
+<form method='post' action='/register'>
+    First Name: <input type='text' name='first_name'>
+    Last Name: <input type='text' name='last_name'>
+    Email: <input type='email' name='email'>
+    Password: <input type='password' name='password'>
+    <input type="submit" value="Register">
+</form>

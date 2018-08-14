@@ -1,0 +1,56 @@
+<html>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#submit').click(function(){
+                var url = 'pokemon/' + $('#number').val()
+                $.get(url, function(data){
+                    console.log("got the data", data);
+                }, 'json');
+            });
+            $('button').click(function(){
+                var url = 'pokemon/remove/' + $(this).attr('id')
+                $.get(url, function(data){
+                    console.log("got the data", data);
+                }, 'json');
+            })
+            $('form').submit(function(){
+                var form_data = $(this).serializeArray()
+                console.log(form_data)
+                var url = 'pokemon/'+$(this).attr('id') +"/" + form_data[0].value
+                console.log(url)
+                $.get(url, function(data){
+                    console.log("got the data", data);
+                }, 'json');
+                return false
+            })
+        });
+    </script>
+<body>
+    <h2>Add your pokemon below:</h2>
+    <input type="text" id='number'>
+    <button id='submit'>Add!</button>
+    
+    <div>
+        <h2>Here are the pokemon in your database!</h2>
+        <% for (var poke of pokemon) { %>
+            <h3>Name: <%= poke.name %></h3>
+            <h3>Abilities: 
+                <% for (var ability of poke.abilities) { %>
+                    <span><%= ability %> </span>
+                <% } %>
+            </h3>
+            <h3>Stats: 
+                <% for (var stat of poke.stats) { %>
+                    <span><%= stat[0] %>: <%= stat[1] %> </span>
+                <% } %>
+            </h3>
+            <button id='<%= poke.id %>'>Remove</button>
+            <form id="<%= poke.id %>">
+                <input type="text" name='new_number'>
+                <input type="submit" value='Change'>
+            </form>
+        <% } %>
+    </div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <title>Ninja Class</title>
+</head>
+<body>
+        <script>
+                function Ninja(name){
+                    this.name = name;
+                    this.health = 100;
+                    var speed = 3;
+                    var strength = 3;
+
+                    this.punch = function(other_ninja){
+                        other_ninja.health -= 5
+                        console.log(`${this.name} punched ${other_ninja.name}`);
+                        console.log(`${other_ninja.name}'s health is ${other_ninja.health}`);
+                    }
+
+                    this.kick = function(other_ninja){
+                        other_ninja.health -= (strength * 15);
+                        console.log(`${this.name} has kicked ${other_ninja.name} with ${strength*15}`);
+                    }
+
+                    this.checkNinja = function(other_ninja){
+                        if (other_ninja instanceof Ninja){
+                            console.log("This ninja");
+                        }
+                        else{
+                            console.log("Not ninja");
+                        }
+                    }
+                    this.showStats = function(){
+                        console.log("my name is ", this.name);
+                        console.log("my HEALTH is ", this.health);
+                        console.log("my strength is ", strength);
+                        console.log("my speed is ", speed);
+                    }
+                    //getter
+                    this.getSpeed = function(){
+                        return speed;
+                    }
+                    //setter
+                    this.setSpeed = function(newSpeed){
+                        speed=newSpeed;
+                    }
+                }
+            var ninja1 = new Ninja("Hayabusha");
+            var ninja2 = new Ninja("Heihachi")
+            // console.log(ninja1.name);
+            // ninja1.sayName();
+            // ninja1.sayName();
+            ninja1.showStats();
+            console.log("===============")
+            ninja2.showStats();
+            console.log("=== fight ====")
+            ninja1.punch(ninja2);
+            console.log("ninja2 health =>",ninja2.health);
+            ninja2.kick(ninja1);
+            //validation!!!!!
+            ninja1.checkNinja(ninja2);
+    </script>
+    
+</body>
+</html>
