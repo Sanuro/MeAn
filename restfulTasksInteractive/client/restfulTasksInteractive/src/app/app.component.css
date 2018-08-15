@@ -1,0 +1,17 @@
+.index{
+    border: 5px solid #009AC7;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.appComponent{
+    border: 5px solid #C5C494;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.formSubmission{
+    border: 5px solid #E91E63;
+    border-radius: 10px;
+    padding: 10px;
+}

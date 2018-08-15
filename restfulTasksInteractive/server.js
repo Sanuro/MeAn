@@ -1,4 +1,4 @@
-console.log("inside server.js yeet");
+console.log("inside restfulStuff yeet");
 
 const express = require("express");
 const app = express();
